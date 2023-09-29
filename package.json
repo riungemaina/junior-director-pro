@@ -3,11 +3,26 @@
   "version": "0.0.0",
   "description": "Kid Motion",
   "main": "src/index.tsx",
-  "dependencies": {
+  "author": "Max Riunge",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riungemaina/kid-motion/issues"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "remotion": "^4.0.43"
   },
   "devDependencies": {
     "@types/react": "^18.2.23"
-  }
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riungemaina/kid-motion.git"
+  },
+  "keywords": [
+    "remotion",
+    "remotion for kids",
+    "coded-video"
+  ]
 }
