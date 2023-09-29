@@ -1,10 +1,13 @@
 {
   "name": "@riunge/kid-motion",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Kid Motion",
   "main": "src/index.tsx",
   "author": "Max Riunge",
   "license": "MIT",
+  "scripts": {
+    "deploy": "npm publish --access=public"
+  },
   "bugs": {
     "url": "https://github.com/riungemaina/kid-motion/issues"
   },
