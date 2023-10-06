@@ -1,53 +1,13 @@
-import { ReactNode } from 'react'
-import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion'
+import React from 'react'
+import { interpolate, useCurrentFrame } from 'remotion'
 
-type AnimatedRotationProps = {
-  in: {
-    startTime: number
-    endTime: number
-  }
-  out: {
-    startTime: number
-    endTime: number
-  }
-  from: number
-  to: number
-  children: ReactNode
-}
+import { AnimatedRotationProps, extrapolate, useStartAndEndValues } from '../utils'
 
-export const AnimatedRotation = ({
-  in: { startTime: inStartTime, endTime: inEndTime },
-  out: { startTime: outStartTime, endTime: outEndTime },
-  from,
-  to,
-  children,
-}: AnimatedRotationProps) => {
+export const AnimatedRotation = ({ from, to, children, ...props }: AnimatedRotationProps) => {
   const frame = useCurrentFrame()
-  const { durationInFrames, fps } = useVideoConfig()
-  const durationInSecs = durationInFrames / fps
+  const { inStartTimeVal, outStartTimeVal, inEndTimeVal, outEndTimeVal } = useStartAndEndValues(props)
+  const rotationIn = interpolate(frame, [inStartTimeVal, inEndTimeVal], [from, to], extrapolate)
+  const rotationOut = interpolate(frame, [outStartTimeVal, outEndTimeVal], [rotationIn, from], extrapolate)
 
-  const outStartTimeVal = durationInSecs + outStartTime
-  const outEndTimeVal = durationInSecs + outEndTime
-
-  const rotationIn = interpolate(frame, [inStartTime * 30, inEndTime * 30], [from, to], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  })
-
-  const rotationOut = interpolate(frame, [outStartTimeVal * 30, outEndTimeVal * 30], [rotationIn, from], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  })
-
-  return (
-    <span
-      style={{
-        transform: `rotate(${rotationOut}deg)`,
-        transformOrigin: 'center',
-        width: 'fit-content',
-      }}
-    >
-      {children}
-    </span>
-  )
+  return <span style={{ transform: `rotate(${rotationOut}deg)` }}>{children}</span>
 }

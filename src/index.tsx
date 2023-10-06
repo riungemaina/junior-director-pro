@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Composition } from 'remotion'
 
 export * from './opacity'
+export * from './position'
 export * from './rotate'
 
 type VideoProps = {

@@ -1,51 +1,12 @@
-import { ReactNode } from 'react'
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from 'remotion'
+import { interpolate, useCurrentFrame } from 'remotion'
 
-type AnimatedOpacityProps = {
-  in: {
-    startTime: number
-    endTime: number
-  }
-  out: {
-    startTime: number
-    endTime: number
-  }
-  from: number
-  to: number
-  children: ReactNode
-}
+import { AnimatedOpacityProps, extrapolate, useStartAndEndValues } from '../utils'
 
-export const AnimatedOpacity = ({
-  in: { startTime: inStartTime, endTime: inEndTime },
-  out: { startTime: outStartTime, endTime: outEndTime },
-  from,
-  to,
-  children,
-}: AnimatedOpacityProps) => {
+export const AnimatedOpacity = ({ from, to, children, ...props }: AnimatedOpacityProps) => {
   const frame = useCurrentFrame()
-  const { durationInFrames, fps } = useVideoConfig()
-  const durationInSecs = durationInFrames / fps
+  const { inStartTimeVal, outStartTimeVal, inEndTimeVal, outEndTimeVal } = useStartAndEndValues(props)
+  const opacityIn = interpolate(frame, [inStartTimeVal, inEndTimeVal], [from, to], extrapolate)
+  const opacityOut = interpolate(frame, [outStartTimeVal, outEndTimeVal], [opacityIn, from], extrapolate)
 
-  const outStartTimeVal = durationInSecs + outStartTime
-  const outEndTimeVal = durationInSecs + outEndTime
-
-  const opacityIn = interpolate(frame, [inStartTime * 30, inEndTime * 30], [from, to], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  })
-
-  const opacityOut = interpolate(frame, [outStartTimeVal * 30, outEndTimeVal * 30], [opacityIn, from], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  })
-
-  return (
-    <AbsoluteFill
-      style={{
-        opacity: opacityOut,
-      }}
-    >
-      {children}
-    </AbsoluteFill>
-  )
+  return <span style={{ opacity: opacityOut }}>{children}</span>
 }

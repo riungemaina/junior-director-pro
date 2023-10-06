@@ -1,6 +1,6 @@
 {
   "name": "@riunge/kid-motion",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Kid Motion",
   "main": "src/index.tsx",
   "author": "Max Riunge",
@@ -13,7 +13,7 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "remotion": "^4.0.43"
+    "remotion": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.23"
