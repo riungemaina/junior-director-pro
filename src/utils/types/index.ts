@@ -20,5 +20,7 @@ export type AnimatedOpacityProps = {
 }
 
 export type AnimatedRotationProps = AnimatedOpacityProps
-
 export type AnimatedPositionProps = AnimatedOpacityProps
+export interface AnimatedScaleProps extends AnimatedOpacityProps {
+  origin?: 'top' | 'bottom' | 'left' | 'right' | 'center' | 'top left' | 'top right' | 'bottom left' | 'bottom right'
+}

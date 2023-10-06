@@ -4,6 +4,7 @@ import { Composition } from 'remotion'
 export * from './opacity'
 export * from './position'
 export * from './rotate'
+export * from './scale'
 
 type VideoProps = {
   durationInMinutes: number
