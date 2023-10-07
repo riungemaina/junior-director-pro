@@ -1,31 +1,22 @@
 {
-  "name": "@riunge/kid-motion",
-  "version": "0.0.2",
-  "description": "Kid Motion",
-  "main": "src/index.tsx",
-  "author": "Max Riunge",
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "deploy": "npm publish --access=public"
-  },
-  "bugs": {
-    "url": "https://github.com/riungemaina/kid-motion/issues"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "remotion": "^4.0.0"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@types/react": "^18.2.23"
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "tsconfig": "*",
+    "turbo": "latest"
   },
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/riungemaina/kid-motion.git"
-  },
-  "keywords": [
-    "remotion",
-    "remotion for kids",
-    "coded-video"
+  "name": "junior-director-pro",
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
   ]
 }
