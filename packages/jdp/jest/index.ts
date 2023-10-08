@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 import '@testing-library/jest-dom'
 
 jest.mock('remotion', () => ({
-  useCurrentFrame: () => 15,
+  useCurrentFrame: jest.fn(),
   useVideoConfig: () => ({
     durationInFrames: 60,
     fps: 30,

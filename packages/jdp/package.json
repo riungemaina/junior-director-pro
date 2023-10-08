@@ -7,7 +7,7 @@
   "author": "Max Riunge",
   "license": "MIT",
   "scripts": {
-    "deploy": "npm publish --access=public",
+    "deploy": "jest && npm publish --access=public",
     "test": "jest --watchAll",
     "dev": "tsc -w",
     "build": "tsc"

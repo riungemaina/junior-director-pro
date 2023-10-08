@@ -2,6 +2,8 @@
 
 This is a abstraction layer for Remotion to help kids learn how to create videos with code
 
+Note: _The project is very opinionated since we are trying to remove overhead for kids_
+
 ## What's inside?
 
 This Project includes the following packages/apps:

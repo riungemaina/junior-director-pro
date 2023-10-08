@@ -11,7 +11,7 @@ export const AnimatedVerticalPosition = ({ from, to, children, ...props }: Anima
   const { inStartTimeVal, outStartTimeVal, inEndTimeVal, outEndTimeVal } = useStartAndEndValues(props)
 
   if (frame >= inStartTimeVal && frame <= outEndTimeVal) {
-    const height = (heightRef.current?.clientHeight ?? 0) / 2
+    const height = heightRef.current?.clientHeight ?? 0
     const positionIn = interpolate(frame, [inStartTimeVal, inEndTimeVal], [from, to], extrapolate)
     const positionOut = interpolate(frame, [outStartTimeVal, outEndTimeVal], [positionIn, from], extrapolate)
     const heightIn = interpolate(
@@ -28,7 +28,7 @@ export const AnimatedVerticalPosition = ({ from, to, children, ...props }: Anima
     )
 
     return (
-      <span style={{ transform: `translateY(calc(${positionOut}% + ${heightOut}px))` }} ref={heightRef}>
+      <span style={{ position: 'absolute', top: `calc(${positionOut}% - ${heightOut}px)` }} ref={heightRef}>
         {children}
       </span>
     )
@@ -44,7 +44,7 @@ export const AnimatedHorizontalPosition = ({ from, to, children, ...props }: Ani
   const { inStartTimeVal, outStartTimeVal, inEndTimeVal, outEndTimeVal } = useStartAndEndValues(props)
 
   if (frame >= inStartTimeVal && frame <= outEndTimeVal) {
-    const width = (widthRef.current?.clientWidth ?? 0) / 4
+    const width = widthRef.current?.clientWidth ?? 0
     const positionIn = interpolate(frame, [inStartTimeVal, inEndTimeVal], [from, to], extrapolate)
     const positionOut = interpolate(frame, [outStartTimeVal, outEndTimeVal], [positionIn, from], extrapolate)
     const widthIn = interpolate(
@@ -56,7 +56,7 @@ export const AnimatedHorizontalPosition = ({ from, to, children, ...props }: Ani
     const widthOut = interpolate(frame, [outStartTimeVal, outEndTimeVal], [widthIn, (from * width) / 100], extrapolate)
 
     return (
-      <span style={{ transform: `translateX(calc(${positionOut / 2}% - ${widthOut}px))` }} ref={widthRef}>
+      <span style={{ position: 'absolute', left: `calc(${positionOut}% - ${widthOut}px)` }} ref={widthRef}>
         {children}
       </span>
     )

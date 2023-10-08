@@ -1,3 +1,10 @@
+import type { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers'
+
+export type ExpectInterface = {
+  (actual: any): TestingLibraryMatchers<any, any>
+  extend: (matchers: Record<string, any>) => void
+}
+
 type TimeType = {
   startTime: number
   endTime?: number
