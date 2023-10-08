@@ -1,7 +1,8 @@
 import React from 'react'
 import { interpolate, useCurrentFrame } from 'remotion'
 
-import { AnimatedOpacityProps, extrapolate, useStartAndEndValues } from '../utils'
+import { AnimatedOpacityProps } from '../types'
+import { extrapolate, useStartAndEndValues } from '../utils'
 
 export const AnimatedOpacity = ({ from, to, children, ...props }: AnimatedOpacityProps) => {
   const frame = useCurrentFrame()

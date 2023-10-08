@@ -1,9 +1,9 @@
-import { describe, expect as expectNonTyped, it } from "@jest/globals";
-import type { TestingLibraryMatchers } from "@testing-library/jest-dom/types/matchers";
-import { render } from "@testing-library/react";
-import React from "react";
+import { describe, expect as expectNonTyped, it } from '@jest/globals'
+import type { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers'
+import { render } from '@testing-library/react'
+import React from 'react'
 
-import { AnimatedOpacity } from "./";
+import { AnimatedOpacity } from './'
 
 const props = {
   from: 0,
@@ -16,36 +16,30 @@ const props = {
     startTime: -1,
     endTime: 0,
   },
-};
+}
 
 type ExpectInterface = {
-  (actual: any): TestingLibraryMatchers<any, any>;
-  extend: (matchers: Record<string, any>) => void;
-};
-let expect: ExpectInterface = expectNonTyped as any;
+  (actual: any): TestingLibraryMatchers<any, any>
+  extend: (matchers: Record<string, any>) => void
+}
+let expect: ExpectInterface = expectNonTyped as any
 
-describe("AnimatedOpacity", () => {
-  it("calculates opacityIn correctly", () => {
-    const { container } = render(
-      <AnimatedOpacity {...props}>Test Content</AnimatedOpacity>
-    );
+describe('AnimatedOpacity', () => {
+  it('calculates opacityIn correctly', () => {
+    const { container } = render(<AnimatedOpacity {...props}>Test Content</AnimatedOpacity>)
 
-    expect(container.firstChild).toHaveStyle("opacity: 0.5");
-  });
+    expect(container.firstChild).toHaveStyle('opacity: 0.5')
+  })
 
-  it("calculates opacityOut correctly", () => {
-    const { container } = render(
-      <AnimatedOpacity {...props}>Test Content</AnimatedOpacity>
-    );
+  it('calculates opacityOut correctly', () => {
+    const { container } = render(<AnimatedOpacity {...props}>Test Content</AnimatedOpacity>)
 
-    expect(container.firstChild).toHaveStyle("opacity: 0.5");
-  });
+    expect(container.firstChild).toHaveStyle('opacity: 0.5')
+  })
 
-  it("renders children correctly", () => {
-    const { getByText } = render(
-      <AnimatedOpacity {...props}>Test Content</AnimatedOpacity>
-    );
+  it('renders children correctly', () => {
+    const { getByText } = render(<AnimatedOpacity {...props}>Test Content</AnimatedOpacity>)
 
-    expect(getByText("Test Content")).toBeInTheDocument();
-  });
-});
+    expect(getByText('Test Content')).toBeInTheDocument()
+  })
+})

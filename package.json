@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
+    "build": "FORCE_COLOR=1 turbo run build",
+    "dev": "FORCE_COLOR=1 turbo run dev",
+    "lint": "FORCE_COLOR=1 turbo run lint",
+    "test": "FORCE_COLOR=1 turbo run test ",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {

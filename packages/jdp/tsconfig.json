@@ -5,6 +5,8 @@
     "module": "commonjs",
     "jsx": "react",
     "types": ["jest", "node"],
+    "outDir": "dist",
     "esModuleInterop": true
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }

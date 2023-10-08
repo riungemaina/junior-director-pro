@@ -1,7 +1,8 @@
 import React from 'react'
 import { interpolate, useCurrentFrame } from 'remotion'
 
-import { AnimatedScaleProps, extrapolate, useStartAndEndValues } from '../utils'
+import { AnimatedScaleProps } from '../types'
+import { extrapolate, useStartAndEndValues } from '../utils'
 
 export const AnimatedScale = ({ from, to, children, origin: transformOrigin, ...props }: AnimatedScaleProps) => {
   const frame = useCurrentFrame()

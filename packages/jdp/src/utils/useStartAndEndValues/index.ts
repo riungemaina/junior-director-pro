@@ -1,6 +1,6 @@
 import { useVideoConfig } from 'remotion'
 
-import { ValueCalculationType } from '../types'
+import { ValueCalculationType } from '../../types'
 
 export const useStartAndEndValues = ({
   in: { startTime: inStartTime, endTime: inEndTime = 0, duration: inDuration = 0 },

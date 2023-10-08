@@ -1,7 +1,8 @@
 import React from 'react'
 import { interpolate, useCurrentFrame } from 'remotion'
 
-import { AnimatedRotationProps, extrapolate, useStartAndEndValues } from '../utils'
+import { AnimatedRotationProps } from '../types'
+import { extrapolate, useStartAndEndValues } from '../utils'
 
 export const AnimatedRotation = ({ from, to, children, ...props }: AnimatedRotationProps) => {
   const frame = useCurrentFrame()

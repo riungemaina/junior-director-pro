@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import { interpolate, useCurrentFrame } from 'remotion'
 
-import { AnimatedPositionProps, extrapolate, useStartAndEndValues } from '../utils'
+import { AnimatedPositionProps } from '../types'
+import { extrapolate, useStartAndEndValues } from '../utils'
 
 export const AnimatedVerticalPosition = ({ from, to, children, ...props }: AnimatedPositionProps) => {
   const frame = useCurrentFrame()
