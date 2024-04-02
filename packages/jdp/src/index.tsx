@@ -1,5 +1,6 @@
 export * from './opacity'
 export * from './position'
+export * from './reveal'
 export * from './rotate'
 export * from './scale'
 export * from './video'
