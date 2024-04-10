@@ -1,6 +1,6 @@
 {
   "name": "@riunge/junior-director-pro",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Junior Director Pro is an abstraction layer for Remotion",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
